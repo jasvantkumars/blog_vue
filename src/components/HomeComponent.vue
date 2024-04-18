@@ -1,27 +1,31 @@
 <template>
-  <h1 v-if="show">If Condtion</h1>
+  <h1>For Loop in Vue js</h1>
 
-  <h1 v-else>else Condtion</h1>
+  <ul>
+    <li v-for="item in technology" :key="item">
+      {{ item }}
+    </li>
+  </ul>
+  <br />
 
-  <button v-on:click="show = !show">Toogle</button>
+  <br />
+  <ul>
+    <li v-for="item in user" :key="item.email">
+      Name is : {{ item.name }} and Email is : {{ item.email }}
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
-  name: "HomeComponent",
   data() {
-
     return {
-      show: true
-
-    }
-
-  }
-}
+      technology: ["java", "php", "node"],
+      user: [
+        { name: "John", email: "john@example.com" },
+        { name: "Jane", email: "jane@example.com" },
+      ],
+    };
+  },
+};
 </script>
-
-<style scoped>
-h1 {
-  color: orange;
-}
-</style>
