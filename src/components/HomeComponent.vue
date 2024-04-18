@@ -1,34 +1,28 @@
 <template>
-  <div>
-    <h1 v-on:mousemove="getConsole()">Home Component</h1>
-    <button v-on:click="getData()">Click Me</button>
-    <button v-on:dblclick="getData('Button double clicked')">Double Click Me</button>
-    <h2>{{ count }}</h2>
-  </div>
+  <h1>Two Way Binding</h1>
+
+  <input type="text" v-model="count" />
+  <h2>{{ count }}</h2>
+
 </template>
 
 <script>
 export default {
-  name: "HomeComponent", // Changed from "Home" to "HomeComponent"
+
+  name: "HomeComponent",
   data() {
     return {
-      count: 0
-    }
-  },
-  methods: {
-    getData(data) {
-      this.count++;
-      console.log(data);
-    },
-    getConsole() {
-      console.warn("Function called");
+
+      count: 10
+
     }
   }
 }
+
 </script>
 
 <style scoped>
-h1 {
-  color: orange;
+body {
+  font-family: sans-serif;
 }
 </style>
