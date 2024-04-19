@@ -1,23 +1,24 @@
-<!-- HomeComponent.vue -->
 <template>
-  <h1>Props And Vue js</h1>
-  <StudentComponent :name="name"/>
-  <TeacherComponent :name="name" />
+  <h1>{{ childUser }}</h1>
+  <UserComponent :getUser="getUserName" />
 </template>
 
 <script>
-import StudentComponent from './StudentComponent.vue'
-import TeacherComponent from './TeacherComponent.vue'
+import UserComponent from './UserComponent.vue'
 export default {
   name: "HomeComponent",
-  data(){
-    return{
-      name: "Jasvant Kumar"
+  data() {
+    return {
+      childUser: ""
     }
   },
-  components:{
-    StudentComponent,
-    TeacherComponent
+  components: {
+    UserComponent
+  },
+  methods: {
+    getUserName(name) {
+      this.childUser = name
+    }
   }
 };
 </script>

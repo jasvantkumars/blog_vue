@@ -1,28 +1,18 @@
 <template>
-    <div class="user-card">
-      <h2>{{ data.name }}</h2>
-      <h2>{{ data.email }}</h2>
-      <button @click="alertName(data.name)">Alert name</button>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'UserComponent',
-    props: {
-      data: Object,
-      alertName: Function
+  <h2>User Component</h2>
+  <button v-on:click="getUser(userName)">Send User Name</button>
+</template>
+
+<script>
+export default {
+  name: 'UserComponent',
+  data() {
+    return {
+      userName: "Jasvant Kumar"
     }
-  };
-  </script>
-  
-  <style scoped>
-  .user-card {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 15px;
-    border-radius: 5px;
+  },
+  props: {
+    getUser: Function
   }
-  </style>
-  
+};
+</script>
