@@ -1,19 +1,26 @@
 <template>
-  <h1>{{ text }}</h1>
-  <div v-html="tag"></div>
-  <div v-html="tag2"></div>
+  <h1>CSS Binding</h1>
+  <h2 :class="{ green: colorful }">Dynamic Class Binding</h2>
 </template>
 
 <script>
-
 export default {
   name: "HomeComponent",
   data() {
     return {
-     text:"Mukesh kumar",
-     tag:"<h1>Mukesh kumar</h1>",
-     tag2:"<h1>mukesh@kumar.com</h1>"
-    }
+      colorful: true
+    };
   }
-}
+};
 </script>
+
+<style scoped>
+h1 {
+  color: orange;
+}
+.green {
+  background-color: green;
+  width: 200px;
+  padding: 10px;
+}
+</style>
