@@ -1,25 +1,23 @@
+<!-- HomeComponent.vue -->
 <template>
-  <h1>CSS Binding</h1>
-  <h2 :class="applyStyle">Dynamic Class Binding</h2>
-  <button @click="colorfull = !colorfull">Apply Style</button>
+  <h1>Props And Vue js</h1>
+  <StudentComponent :name="name"/>
+  <TeacherComponent :name="name" />
 </template>
 
 <script>
+import StudentComponent from './StudentComponent.vue'
+import TeacherComponent from './TeacherComponent.vue'
 export default {
   name: "HomeComponent",
-  data() {
-    return {
-      colorfull: true
-    };
-  },
-  computed: {
-    applyStyle() {
-      return {
-        green: this.colorfull,
-        err: true,
-        other: true
-      };
+  data(){
+    return{
+      name: "Jasvant Kumar"
     }
+  },
+  components:{
+    StudentComponent,
+    TeacherComponent
   }
 };
 </script>
@@ -27,18 +25,5 @@ export default {
 <style scoped>
 h1 {
   color: orange;
-}
-
-.green {
-  background-color: green;
-  width: 200px;
-  padding: 10px;
-}
-.other {
-  font-size: 50px;
-}
-
-.err {
-  color: red;
 }
 </style>
