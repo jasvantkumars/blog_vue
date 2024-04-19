@@ -1,31 +1,47 @@
-<!-- HomeComponent.vue -->
 <template>
   <div>
-    <h1>Pass Data to child Component</h1>
-    <!-- Here's where you use the ChildComponent -->
-    <ChildComponent name="anil sidhu" :user="user" :get-data="getData" />
+    <h1>Pass Data to Child Component</h1>
+    <ul>
+      <li v-for="item in users" :key="item.name">
+        <!-- Pass the method as a prop -->
+        <UserComponent :data="item" :alertName="getData" />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import ChildComponent from './ChildComponent.vue'
+import UserComponent from './UserComponent.vue'
 
 export default {
   name: "HomeComponent",
   components: {
-    ChildComponent
+    UserComponent
+  },
+  methods: {
+    getData(name) {
+      alert(name)
+    }
   },
   data() {
     return {
-      user: {
-        name: 'Peter',
-        email: 'peter@test.com'
-      }
-    }
-  },
-  methods: {
-    getData() {
-      console.warn("parent function called")
+      users: [{
+          name: 'Mukesh Kumar',
+          email: 'mk.doe@example.com'
+        },
+        {
+          name: 'Jasvant kumar',
+          email: 'jks.doe@example.com'
+        },
+        {
+          name: 'Avinash Kumar',
+          email: 'akr.doe@example.com'
+        },
+        {
+          name: 'Abhinandan',
+          email: 'akp.doe@example.com'
+        }
+      ]
     }
   }
 }
