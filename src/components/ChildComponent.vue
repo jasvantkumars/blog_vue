@@ -1,4 +1,3 @@
-<!-- ChildComponent.vue -->
 <template>
   <div>
     <h2>{{ name }}</h2>
