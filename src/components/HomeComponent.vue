@@ -1,31 +1,32 @@
+<!-- HomeComponent.vue -->
 <template>
-  <h1>For Loop in Vue js</h1>
-
-  <ul>
-    <li v-for="item in technology" :key="item">
-      {{ item }}
-    </li>
-  </ul>
-  <br />
-
-  <br />
-  <ul>
-    <li v-for="item in user" :key="item.email">
-      Name is : {{ item.name }} and Email is : {{ item.email }}
-    </li>
-  </ul>
+  <div>
+    <h1>Pass Data to child Component</h1>
+    <!-- Here's where you use the ChildComponent -->
+    <ChildComponent name="anil sidhu" :user="user" :get-data="getData" />
+  </div>
 </template>
 
 <script>
+import ChildComponent from './ChildComponent.vue'
+
 export default {
+  name: "HomeComponent",
+  components: {
+    ChildComponent
+  },
   data() {
     return {
-      technology: ["java", "php", "node"],
-      user: [
-        { name: "John", email: "john@example.com" },
-        { name: "Jane", email: "jane@example.com" },
-      ],
-    };
+      user: {
+        name: 'Peter',
+        email: 'peter@test.com'
+      }
+    }
   },
-};
+  methods: {
+    getData() {
+      console.warn("parent function called")
+    }
+  }
+}
 </script>
