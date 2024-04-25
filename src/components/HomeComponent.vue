@@ -1,26 +1,24 @@
 <template>
-  <h1>{{ childUser }}</h1>
-  <UserComponent :getUser="getUserName" />
+  <h1>Ref in Vue js 3</h1>
+
+  <input type="text" ref="input" />
+  <button v-on:click="getData">Click Me</button>
 </template>
 
 <script>
-import UserComponent from './UserComponent.vue'
 export default {
   name: "HomeComponent",
-  data() {
-    return {
-      childUser: ""
-    }
-  },
-  components: {
-    UserComponent
-  },
   methods: {
-    getUserName(name) {
-      this.childUser = name
+    getData() {
+      this.$refs.input.focus();
+
+      let val = this.$refs.input.value;
+      console.warn(val);
+
+      this.$refs.input.style.color = "red";
     }
   }
-};
+}
 </script>
 
 <style scoped>
